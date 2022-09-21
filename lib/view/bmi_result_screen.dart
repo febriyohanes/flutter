@@ -1,9 +1,40 @@
 import 'package:bmi/view/bmi_data_screen.dart';
+import 'package:bmi/view/constants/constant.dart';
 import 'package:flutter/material.dart';
 import 'dart:ui';
 
 class BmiResultScreen extends StatelessWidget {
-  const BmiResultScreen({Key? key}) : super(key: key);
+  const BmiResultScreen({Key? key, required this.bmi}) : super(key: key);
+  final double bmi;
+
+  bmicategory(double bmiValue) {
+    String CategoryBmi = "";
+    if (bmiValue < 25) {
+      CategoryBmi = underweightSevere;
+    } else if (bmiValue > 25 && bmiValue < 50) {
+      CategoryBmi = underweightMild;
+    } else{
+      CategoryBmi = underweightModerate;
+    }
+    return CategoryBmi;
+  }
+  getDescription(String category) {
+    String dec = "";
+
+    switch (category) {
+      case underweightSevere:
+        dec = "Severe ya mas ";
+        break;
+      case underweightMild:
+        dec = "Mild ya mas ";
+        break;
+      case underweightModerate:
+        dec = "Moderate ya mas ";
+        break;
+    }
+
+    return dec;
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -36,18 +67,18 @@ class BmiResultScreen extends StatelessWidget {
                       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                       children: [
                         Text(
-                          "Normal",
+                          bmicategory(bmi),
                           style: TextStyle(
                               fontSize: 20,
                               fontWeight: FontWeight.bold,
                               color: Colors.white),
                         ),
-                        Text("18.5",
+                        Text("${bmi.toStringAsFixed(1)}",
                             style: TextStyle(
                                 fontSize: 100,
                                 fontWeight: FontWeight.bold,
                                 color: Colors.white)),
-                        Text("lorem ipsum sir dollor silit anget",
+                        Text(getDescription(bmicategory(bmi)),
                             textAlign: TextAlign.center,
                             style: TextStyle(
                                 fontSize: 15,

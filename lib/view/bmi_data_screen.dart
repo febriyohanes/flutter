@@ -15,6 +15,13 @@ class _BmiDataScreenState extends State<BmiDataScreen> {
   int height = 100;
   int weight = 100;
   int age = 20;
+
+  double calculateBmi(){
+
+    double heightinMeter = height / 100;
+    double bmi = weight / (heightinMeter * heightinMeter);
+    return bmi;
+  }
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -202,8 +209,11 @@ class _BmiDataScreenState extends State<BmiDataScreen> {
           )),
           GestureDetector(
             onTap: () {
+              print(calculateBmi());
               Navigator.of(context).push(MaterialPageRoute(builder: (context) {
-                return BmiResultScreen();
+                return BmiResultScreen(
+                  bmi: calculateBmi(),
+                );
               }));
             },
             child: Container(

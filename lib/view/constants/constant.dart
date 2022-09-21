@@ -11,3 +11,7 @@ TextStyle numberTextStyle = TextStyle(
     fontWeight: FontWeight.bold,
     color: Colors.white
 );
+
+const String underweightSevere = "Underweight bgt mantap";
+const String underweightModerate = "Underweight bgt kurang";
+const String underweightMild = "Underweight titik";
