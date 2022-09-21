@@ -13,7 +13,8 @@ class BmiDataScreen extends StatefulWidget {
 
 class _BmiDataScreenState extends State<BmiDataScreen> {
   int height = 100;
-
+  int weight = 100;
+  int age = 20;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -97,13 +98,18 @@ class _BmiDataScreenState extends State<BmiDataScreen> {
                         "Weight",
                         style: labelTextstyle,
                       ),
-                      Text("60", style: numberTextStyle),
+                      Text("$weight", style: numberTextStyle),
                       SizedBox(height: 8),
                       Row(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
                           RawMaterialButton(
-                            onPressed: () {},
+                            onPressed: () {
+                              weight++;
+                              setState(() {
+
+                              });
+                            },
                             elevation: 0,
                             child: Icon(
                               Icons.add,
@@ -116,7 +122,12 @@ class _BmiDataScreenState extends State<BmiDataScreen> {
                           ),
                           SizedBox(width: 10),
                           RawMaterialButton(
-                            onPressed: () {},
+                            onPressed: () {
+                              weight--;
+                              setState(() {
+
+                              });
+                            },
                             elevation: 0,
                             child: Icon(
                               Icons.remove,
@@ -141,13 +152,18 @@ class _BmiDataScreenState extends State<BmiDataScreen> {
                         "Age",
                         style: labelTextstyle,
                       ),
-                      Text("20", style: numberTextStyle),
+                      Text("$age", style: numberTextStyle),
                       SizedBox(height: 8),
                       Row(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
                           RawMaterialButton(
-                            onPressed: () {},
+                            onPressed: () {
+                              age++;
+                              setState(() {
+
+                              });
+                            },
                             elevation: 0,
                             child: Icon(
                               Icons.add,
@@ -160,7 +176,12 @@ class _BmiDataScreenState extends State<BmiDataScreen> {
                           ),
                           SizedBox(width: 10),
                           RawMaterialButton(
-                            onPressed: () {},
+                            onPressed: () {
+                              age--;
+                              setState(() {
+
+                              });
+                            },
                             elevation: 0,
                             child: Icon(
                               Icons.remove,
@@ -186,9 +207,14 @@ class _BmiDataScreenState extends State<BmiDataScreen> {
               }));
             },
             child: Container(
-              height: 100,
+              height: 80,
               color: Colors.orange,
-              child: Center(child: Text("Hitung BMI")),
+              child: Center(child: Text("Calculate BMI",
+                  style: TextStyle(
+                    color: Colors.white,
+                    fontSize: 25,
+                    fontWeight: FontWeight.bold
+                  ),)),
             ),
           )
         ],
