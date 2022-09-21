@@ -1,7 +1,13 @@
 import 'package:flutter/material.dart';
 
 Color primaryColor = Color(0xff051937);
-TextStyle genderTextStyle = TextStyle(
+TextStyle labelTextstyle = TextStyle(
     fontSize: 18,
-    color: Color(0xffe7efff)
+    color: Colors.white
+);
+
+TextStyle numberTextStyle = TextStyle(
+    fontSize: 50,
+    fontWeight: FontWeight.bold,
+    color: Colors.white
 );
